@@ -1,14 +1,12 @@
 # React Scheduler Component
 
-[![npm package](https://img.shields.io/npm/v/@aldabil/react-scheduler/latest.svg)](https://www.npmjs.com/package/@aldabil/react-scheduler)
-[![Twitter URL](https://img.shields.io/twitter/url?label=%40aldabil&style=social&url=https%3A%2F%2Ftwitter.com%2Fintent%2Ffollow%3Fscreen_name%3Daldabil21)](https://twitter.com/intent/follow?screen_name=aldabil21)
-
 > :warning: **Notice**: This component uses `mui`/`emotion`/`date-fns`. if your project is not already using these libs, this component may not be suitable.
 
 ## Installation
 
 ```jsx
 npm i venzo-schedule-calendar --save
+npm install @mui/material @emotion/react @emotion/styled
 ```
 
 ## Usage
@@ -18,24 +16,81 @@ import { Scheduler } from "venzo-schedule-calendar";
 ```
 
 ## Example
-
+{
 ```jsx
 <Scheduler
   view="month"
   events={[
-    {
-      event_id: 1,
-      title: "Event 1",
-      start: new Date("2021/5/2 09:30"),
-      end: new Date("2021/5/2 10:30"),
-    },
-    {
-      event_id: 2,
-      title: "Event 2",
-      start: new Date("2021/5/4 10:00"),
-      end: new Date("2021/5/4 11:00"),
-    },
-  ]}
+          {
+            event_id: 1,
+            title: "Event 1 (Disabled)",
+            start: new Date(new Date(new Date().setHours(9)).setMinutes(0)),
+            end: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
+            disabled: true,
+            admin_id: [1, 2, 3, 4],
+          },
+          {
+            event_id: 2,
+            title: "Event 2",
+            start: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
+            end: new Date(new Date(new Date().setHours(12)).setMinutes(0)),
+            admin_id: 2,
+            color: "#50b500",
+          },
+          {
+            event_id: 3,
+            title: "Event 3",
+            start: new Date(new Date(new Date().setHours(11)).setMinutes(0)),
+            end: new Date(new Date(new Date().setHours(15)).setMinutes(0)),
+            admin_id: 1,
+            editable: false,
+            deletable: false,
+          },
+          {
+            event_id: 4,
+            title: "Event 4",
+            start: new Date(
+              new Date(new Date(new Date().setHours(9)).setMinutes(30)).setDate(
+                new Date().getDate() - 2
+              )
+            ),
+            end: new Date(
+              new Date(new Date(new Date().setHours(12)).setMinutes(0)).setDate(
+                new Date().getDate() - 2
+              )
+            ),
+            admin_id: [2, 3],
+            color: "#900000",
+            allDay: true,
+          },
+          {
+            event_id: 5,
+            title: "Event 5",
+            start: new Date(
+              new Date(
+                new Date(new Date().setHours(10)).setMinutes(30)
+              ).setDate(new Date().getDate() - 2)
+            ),
+            end: new Date(
+              new Date(new Date(new Date().setHours(14)).setMinutes(0)).setDate(
+                new Date().getDate() - 2
+              )
+            ),
+            admin_id: 2,
+            editable: true,
+          },
+          {
+            event_id: 6,
+            title: "Event 6",
+            start: new Date(
+              new Date(
+                new Date(new Date().setHours(20)).setMinutes(30)
+              ).setDate(new Date().getDate() - 3)
+            ),
+            end: new Date(new Date(new Date().setHours(23)).setMinutes(0)),
+            admin_id: 2,
+            allDay: true,
+          }]}
 />
 ```
 
@@ -115,7 +170,48 @@ const SomeComponent = () => {
 
     <Scheduler
       ref={calendarRef}
-      events={EVENTS}
+      events={ [{
+            event_id: 1,
+            title: "Event 1 (Disabled)",
+            start: new Date(new Date(new Date().setHours(9)).setMinutes(0)),
+            end: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
+            disabled: true,
+            admin_id: [1, 2, 3, 4],
+          },
+          {
+            event_id: 2,
+            title: "Event 2",
+            start: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
+            end: new Date(new Date(new Date().setHours(15)).setMinutes(0)),
+            admin_id: 2,
+            color: "#50b500",
+          },
+          {
+            event_id: 3,
+            title: "Event 3",
+            start: new Date(new Date(new Date().setHours(11)).setMinutes(0)),
+            end: new Date(new Date(new Date().setHours(12)).setMinutes(0)),
+            admin_id: 1,
+            editable: false,
+            deletable: false,
+          },
+          {
+            event_id: 4,
+            title: "Event 4",
+            start: new Date(
+              new Date(new Date(new Date().setHours(9)).setMinutes(30)).setDate(
+                new Date().getDate() - 2
+              )
+            ),
+            end: new Date(
+              new Date(new Date(new Date().setHours(11)).setMinutes(0)).setDate(
+                new Date().getDate() - 2
+              )
+            ),
+            admin_id: [2, 3],
+            color: "#900000",
+            allDay: true,
+          },]}
       //...
     />
   </Fragment>
