@@ -2,6 +2,7 @@ import { Scheduler } from "./lib";
 import { EVENTS } from "./events";
 import { useRef } from "react";
 import { SchedulerRef } from "./lib/types";
+import { Button } from "@mui/material";
 
 function App() {
   const calendarRef = useRef(null);
@@ -21,17 +22,23 @@ function App() {
   const startHour = Math.max(8, d.getHours());
   console.log(startHour);
   return (
-    <div style={{ width: 800, height: 700 }}>
+    <div>
       <Scheduler
         view="week"
         week={{
           weekDays: [0, 1, 2, 3, 4, 5, 6],
           weekStartOn: 1,
-          startHour: startHour,
+          startHour: 9,
           endHour: 17,
           step: 30,
           navigation: true,
           disableGoToDay: false,
+          cellOnClick: (props) => {
+            console.log(props);
+          },
+          eventOnClick: (props) => {
+            console.log(props);
+          },
         }}
         ref={calendarRef}
         events={EVENTS}

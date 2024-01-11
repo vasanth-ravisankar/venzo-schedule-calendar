@@ -12,6 +12,7 @@ interface CellProps {
   resourceVal: string | number;
   cellRenderer?(props: CellRenderedProps): JSX.Element;
   children?: JSX.Element;
+  cellOnClick?: any;
 }
 
 const Cell = ({
@@ -23,10 +24,11 @@ const Cell = ({
   cellRenderer,
   height,
   children,
+  cellOnClick,
 }: CellProps) => {
   const { editable } = useStore();
   const props = useCellAttributes({ start, end, resourceKey, resourceVal });
-
+  console.log(props)
   if (cellRenderer) {
     return cellRenderer({
       day,
@@ -47,6 +49,7 @@ const Cell = ({
         timeStyle: "long",
       })} - ${end.toLocaleString("en", { dateStyle: "full", timeStyle: "long" })}`}
       {...props}
+      onClick={() => cellOnClick({ start, end, resourceKey, resourceVal })}
     >
       {children}
     </Button>

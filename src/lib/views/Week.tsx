@@ -45,6 +45,8 @@ export interface WeekProps {
   headRenderer?(day: Date): JSX.Element;
   navigation?: boolean;
   disableGoToDay?: boolean;
+  cellOnClick?: any;
+  eventOnClick?: any;
 }
 
 const Week = () => {
@@ -74,6 +76,8 @@ const Week = () => {
     startHour,
     endHour,
     step,
+    cellOnClick,
+    eventOnClick,
     cellRenderer,
     disableGoToDay,
     headRenderer,
@@ -156,7 +160,7 @@ const Week = () => {
             overflowX: "hidden",
           }}
         >
-          <EventItem event={event} hasPrev={hasPrev} hasNext={hasNext} multiday />
+          <EventItem event={event} hasPrev={hasPrev} hasNext={hasNext} multiday eventOnClick={eventOnClick} />
         </div>
       );
     });
@@ -230,6 +234,7 @@ const Week = () => {
                         step={step}
                         direction={direction}
                         timeZone={timeZone}
+                        eventOnClick={eventOnClick}
                       />
                     )}
                     <Cell
@@ -238,6 +243,7 @@ const Week = () => {
                       day={date}
                       height={CELL_HEIGHT}
                       resourceKey={field}
+                      cellOnClick={cellOnClick}
                       resourceVal={resource ? resource[field] : null}
                       cellRenderer={cellRenderer}
                     />

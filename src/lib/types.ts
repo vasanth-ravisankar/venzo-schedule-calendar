@@ -46,6 +46,7 @@ export interface CellRenderedProps {
   onDragEnter(e: DragEvent<HTMLButtonElement>): void;
   onDragLeave(e: DragEvent<HTMLButtonElement>): void;
   onDrop(e: DragEvent<HTMLButtonElement>): void;
+  cellOnClick?: any;
 }
 interface CalendarEvent {
   event_id: number | string;

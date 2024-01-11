@@ -19,7 +19,22 @@ import { Scheduler } from "venzo-schedule-calendar";
 {
 ```jsx
 <Scheduler
-  view="month"
+  view="week"
+  week={{
+          weekDays: [0, 1, 2, 3, 4, 5, 6],
+          weekStartOn: 1,
+          startHour: 9,
+          endHour: 17,
+          step: 30,
+          navigation: true,
+          disableGoToDay: false,
+          cellOnClick: (props) => {
+            console.log(props);
+          },
+          eventOnClick: (props) => {
+            console.log(props);
+          },
+        }}
   events={[
           {
             event_id: 1,

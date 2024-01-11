@@ -14,6 +14,7 @@ interface TodayEventsProps {
   minuteHeight: number;
   direction: "rtl" | "ltr";
   timeZone?: string;
+  eventOnClick?: any;
 }
 const TodayEvents = ({
   todayEvents,
@@ -23,6 +24,7 @@ const TodayEvents = ({
   minuteHeight,
   direction,
   timeZone,
+  eventOnClick
 }: TodayEventsProps) => {
   const crossingIds: Array<number | string> = [];
 
@@ -72,7 +74,7 @@ const TodayEvents = ({
               //     : "",
             }}
           >
-            <EventItem event={event} />
+            <EventItem event={event}  eventOnClick={eventOnClick}/>
           </div>
         );
       })}

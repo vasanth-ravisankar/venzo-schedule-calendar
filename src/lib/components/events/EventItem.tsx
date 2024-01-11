@@ -19,9 +19,10 @@ interface EventItemProps {
   hasPrev?: boolean;
   hasNext?: boolean;
   showdate?: boolean;
+  eventOnClick?: any;
 }
 
-const EventItem = ({ event, multiday, hasPrev, hasNext, showdate = true }: EventItemProps) => {
+const EventItem = ({ event, multiday, hasPrev, hasNext, showdate = true, eventOnClick }: EventItemProps) => {
   const {
     triggerDialog,
     onDelete,
@@ -246,6 +247,10 @@ const EventItem = ({ event, multiday, hasPrev, hasNext, showdate = true }: Event
       >
         <ButtonBase
           onClick={(e) => {
+            if (eventOnClick) {
+              eventOnClick(event);
+              return;
+            }
             e.preventDefault();
             e.stopPropagation();
             triggerViewer(e);
