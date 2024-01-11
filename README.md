@@ -8,13 +8,13 @@
 ## Installation
 
 ```jsx
-npm i @aldabil/react-scheduler
+npm i venzo-schedule-calendar --save
 ```
 
 ## Usage
 
 ```jsx
-import { Scheduler } from "@aldabil/react-scheduler";
+import { Scheduler } from "venzo-schedule-calendar";
 ```
 
 ## Example
@@ -90,8 +90,8 @@ import { Scheduler } from "@aldabil/react-scheduler";
 Used to help manage and control the internal state of the `Scheduler` component from outside of `Scheduler` props, Example:
 
 ```js
-import { Scheduler } from "@aldabil/react-scheduler";
-import type { SchedulerRef } from "@aldabil/react-scheduler/types"
+import { Scheduler } from "venzo-schedule-calendar";
+import type { SchedulerRef } from "venzo-schedule-calendar/types"
 
 const SomeComponent = () => {
   const calendarRef = useRef<SchedulerRef>(null);

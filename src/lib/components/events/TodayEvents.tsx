@@ -61,15 +61,15 @@ const TodayEvents = ({
             style={{
               height: height + heightBorderFactor,
               top,
-              width:
-                alreadyRendered.length > 0
-                  ? `calc(100% - ${100 - 98 / (alreadyRendered.length + 1)}%)`
-                  : "98%", // Leave some space to click cell
+              width: "100%",
+                // alreadyRendered.length > 0
+                //   ? `calc(100% - ${100 - 98 / (alreadyRendered.length + 1)}%)`
+                //   : "98%", // Leave some space to click cell
               zIndex: todayEvents.length + i,
-              [direction === "rtl" ? "right" : "left"]:
-                alreadyRendered.length > 0
-                  ? `${(100 / (crossingEvents.length + 1)) * alreadyRendered.length}%`
-                  : "",
+              // [direction === "rtl" ? "right" : "left"]:
+              //   alreadyRendered.length > 0
+              //     ? `${(100 / (crossingEvents.length + 1)) * alreadyRendered.length}%`
+              //     : "",
             }}
           >
             <EventItem event={event} />
