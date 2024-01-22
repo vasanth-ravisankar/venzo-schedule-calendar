@@ -6,7 +6,7 @@
 
 ```jsx
 npm i venzo-schedule-calendar --save
-npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/material @emotion/react @emotion/styled date-fns
 ```
 
 ## Usage
@@ -20,6 +20,7 @@ import { Scheduler } from "venzo-schedule-calendar";
 ```jsx
 <Scheduler
   view="week"
+  onSelectedDateChange={(props) => console.log(props)} //Provides the start date of the new week
   week={{
           weekDays: [0, 1, 2, 3, 4, 5, 6],
           weekStartOn: 1,
@@ -43,6 +44,7 @@ import { Scheduler } from "venzo-schedule-calendar";
             end: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
             disabled: true,
             admin_id: [1, 2, 3, 4],
+            zIndex: 1,
           },
           {
             event_id: 2,
@@ -51,6 +53,7 @@ import { Scheduler } from "venzo-schedule-calendar";
             end: new Date(new Date(new Date().setHours(12)).setMinutes(0)),
             admin_id: 2,
             color: "#50b500",
+            zIndex: 100,
           },
           {
             event_id: 3,
@@ -104,7 +107,7 @@ import { Scheduler } from "venzo-schedule-calendar";
             ),
             end: new Date(new Date(new Date().setHours(23)).setMinutes(0)),
             admin_id: 2,
-            allDay: true,
+            allDay: true
           }]}
 />
 ```

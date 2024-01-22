@@ -33,7 +33,7 @@ const WeekDateBtn = ({ selectedDate, onChange, weekProps }: WeekDateBtnProps) =>
   };
 
   const handlePrev = () => {
-    const ladtDayPrevWeek = addDays(weekStart, -1);
+    const ladtDayPrevWeek = addDays(weekStart, -7);
     onChange(ladtDayPrevWeek);
   };
   const handleNext = () => {

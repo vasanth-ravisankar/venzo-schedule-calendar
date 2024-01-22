@@ -56,6 +56,7 @@ const TodayEvents = ({
         const alreadyRendered = crossingEvents.filter((e) => crossingIds.includes(e.event_id));
         crossingIds.push(event.event_id);
 
+        console.log("event", event)
         return (
           <div
             key={event.event_id}
@@ -67,7 +68,7 @@ const TodayEvents = ({
                 // alreadyRendered.length > 0
                 //   ? `calc(100% - ${100 - 98 / (alreadyRendered.length + 1)}%)`
                 //   : "98%", // Leave some space to click cell
-              zIndex: todayEvents.length + i,
+              zIndex: event.zIndex || todayEvents.length + i,
               // [direction === "rtl" ? "right" : "left"]:
               //   alreadyRendered.length > 0
               //     ? `${(100 / (crossingEvents.length + 1)) * alreadyRendered.length}%`

@@ -28,7 +28,6 @@ const Cell = ({
 }: CellProps) => {
   const { editable } = useStore();
   const props = useCellAttributes({ start, end, resourceKey, resourceVal });
-  console.log(props)
   if (cellRenderer) {
     return cellRenderer({
       day,

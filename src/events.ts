@@ -16,6 +16,7 @@ export const EVENTS: ProcessedEvent[] = [
     end: new Date(new Date(new Date().setHours(16)).setMinutes(0)),
     admin_id: 2,
     color: "#FF5733",
+    zIndex: 10,
   },
   {
     event_id: 3,
@@ -26,6 +27,7 @@ export const EVENTS: ProcessedEvent[] = [
     editable: false,
     deletable: false,
     color: "#0096FF",
+    zIndex: 1,
   },
   {
     event_id: 5,

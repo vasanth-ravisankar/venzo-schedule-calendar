@@ -25,6 +25,7 @@ function App() {
     <div>
       <Scheduler
         view="week"
+        onSelectedDateChange={(props) => console.log(props)}
         week={{
           weekDays: [0, 1, 2, 3, 4, 5, 6],
           weekStartOn: 1,
