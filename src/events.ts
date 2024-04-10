@@ -17,6 +17,7 @@ export const EVENTS: ProcessedEvent[] = [
     admin_id: 2,
     color: "#FF5733",
     zIndex: 10,
+    showdate: true,
   },
   {
     event_id: 3,

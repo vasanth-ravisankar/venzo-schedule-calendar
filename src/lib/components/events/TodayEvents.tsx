@@ -75,7 +75,7 @@ const TodayEvents = ({
               //     : "",
             }}
           >
-            <EventItem event={event}  eventOnClick={eventOnClick}/>
+            <EventItem event={event} eventOnClick={eventOnClick}/>
           </div>
         );
       })}

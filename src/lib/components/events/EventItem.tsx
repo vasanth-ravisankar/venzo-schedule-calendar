@@ -22,7 +22,7 @@ interface EventItemProps {
   eventOnClick?: any;
 }
 
-const EventItem = ({ event, multiday, hasPrev, hasNext, showdate = true, eventOnClick }: EventItemProps) => {
+const EventItem = ({ event, multiday, hasPrev, hasNext, eventOnClick }: EventItemProps) => {
   const {
     triggerDialog,
     onDelete,
@@ -54,7 +54,7 @@ const EventItem = ({ event, multiday, hasPrev, hasNext, showdate = true, eventOn
   const NextArrow = direction === "rtl" ? ArrowLeftRoundedIcon : ArrowRightRoundedIcon;
   const PrevArrow = direction === "rtl" ? ArrowRightRoundedIcon : ArrowLeftRoundedIcon;
   const hideDates = differenceInDaysOmitTime(event.start, event.end) <= 0 && event.allDay;
-
+const showdate = event.showdate;
   const triggerViewer = (el?: MouseEvent<Element>) => {
     if (!el?.currentTarget && deleteConfirm) {
       setDeleteConfirm(false);

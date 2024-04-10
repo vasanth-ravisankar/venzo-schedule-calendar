@@ -1,6 +1,6 @@
 {
   "name": "venzo-schedule-calendar",
-  "version": "1.0.12",
+  "version": "1.0.14",
   "description": "React scheduler component based on Material-UI & date-fns",
   "files": [
     "*"
